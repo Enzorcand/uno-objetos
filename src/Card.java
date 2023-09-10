@@ -1,16 +1,15 @@
 public abstract class Card {
-    protected String[] type;
-
+    protected Type type;
 
     public Card(){
-        this.type = new String[2];
+        this.type = new Type();
     }
 
     public String getType(){
-        return type[0];
+        return type.getType();
     }
 
     public String getColor(){
-        return type[1];
+        return type.getColor();
     }
 }
