@@ -5,11 +5,11 @@ public class Joker extends Card{
         isBuyFour = tof;
 
         if(tof){
-            type[0] = "+4";
+            type.setType("+4");
         }
         if(!tof){
-            type[0] = "coringa";
+            type.setType("coringa");
         }
-        type[1] = null;
+        type.setColor(null);
     }
 }
