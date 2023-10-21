@@ -2,15 +2,18 @@ import java.util.Random;
 public class Deck {
     private Card[] cards;
     final int size;
+    private int nullCards;
 
     public Deck(int size){
         this.size = size;
         cards = new Card[108*size];
-        setCards();
+        resetCards();
         shuffle();
+        nullCards = 0;
     }
 
-    public void setCards() {
+    //Metodo que reseta o baralho.
+    public void resetCards() {
         int j = 0;
         int k = 0;
         for (int n = 0; n < 108; n++) {
@@ -48,7 +51,18 @@ public class Deck {
     }
 
     public Card buyCard(){
-        return null;
+        if(nullCards == cards.length){
+            resetCards();
+            shuffle();
+        }
+        int i = -1;
+        Card card;
+        do{
+            i++;
+            card = cards[i];
+        }while(card == null);
+        cards[i] = null;
+        return card;
     }
 
     public Card[] getCards(){
